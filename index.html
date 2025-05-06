@@ -9,8 +9,8 @@
 <h1>Which ML techniques can emerge on current transformer architectures, and which ones should be engineered? A principled analysis to help decide.</h1>
 
 <p>Opinions on ways to improve current AI models can be coarsely grouped into 2 schools of thought.</p>
-<p>Proponents of the scaling <del>tenet</del> paradigm think that declaring good incentives (the policy in the context of reinforcement learning) and scaling the number of parameters or training size<sup><a href="#ref1">[1]</a></sup> of the model is all is needed to improve them<sup><a href="#ref2">[2]</a></sup>. A somewhat more radical view is the one of Geoffrey Hinton, who think next-word prediction (i.e. only pre-training), is all you need to advance.<br>
-Conversely, proponents of the engineering paradigm think new architectures or scientific breakthroughs are required to advance the field. These include dedicated world models, bolstered by voices such as Yann LeCun.</p>
+<p>Proponents of the scaling <del>tenet</del> paradigm think that declaring good incentives (the policy in the context of reinforcement learning) and scaling the number of parameters or training size<sup><a href="#ref0">[0]</a></sup> of the model is all is needed to improve them<sup><a href="#ref1">[1]</a></sup>. A somewhat more radical view is the one of Geoffrey Hinton, who think next-word prediction (i.e. only pre-training), is all you need to advance the field.<br>
+Conversely, proponents of the engineering paradigm think new architectures or scientific breakthroughs are required. These include dedicated world models, bolstered by voices such as Yann LeCun.</p>
 
 <p>I instead have 3 principles to decide whether to engineer or leave the network try to come up with a solution:</p>
 
@@ -20,7 +20,7 @@ Conversely, proponents of the engineering paradigm think new architectures or sc
   <li>use engineered solutions if they are significantly more performant than none (e.g. the self-attention mechanism)</li>
 </ul>
 
-<p>I will till the end of this short essay review (sometimes speculatively) ML techniques in the light of these. For the 1st principle, for example, the AI equivalent of a connectome can emerge, so one shouldn’t engineer specialised networks or hubs that connect them<sup><a href="#ref0">[0]</a></sup>.</p>
+<p>I will till the end of this short essay review (sometimes speculatively) ML techniques in the light of these. For the 1st principle, for example, the AI equivalent of a connectome can emerge, so one shouldn’t engineer specialised networks or hubs that connect them<sup><a href="#ref2">[2]</a></sup>.</p>
 
 <p>Considering the 2nd, reliable composability (the ability to compose representations) requires recurrence in depth, as a model would need to be infinitely deep to account for every possible combinations. So-called reasoning or thinking model add recurrence network-wise by allowing last layers to serve as input to the first ones after decoding. This is IMO an inelegant way of adding recurrence in depth, as it only allows feedbacks after full passes, and as such, doesn’t endow fine modularity. Allowing individual layers to choose which layer they connect to dynamically and exit dynamically, would likely see the emergence of subnetwork modules that can be combined, as in brains where feedbacks connections make up ~60 % of them<sup><a href="#ref3">[3]</a></sup>. This would also respect the first 2 principles, by thinking in latent space instead of language (and thereby being potentially more expressive).</p>
 
@@ -35,9 +35,9 @@ Conversely, proponents of the engineering paradigm think new architectures or sc
 <p>Curriculum learning sidestep this framework of principles by being a training technique. It is however more performant than training using mingled data and as such should be used.</p>
 
 <hr>
-<p id="ref1">[0]: akin to the flexible hubs of the neuroscience theory of the same name
-<p id="ref1">[1]: this one won’t move the needle IMO as most of the models are already trained on all the internet and books, but this is nonetheless a held opinion as some advocate training on synthetic data</p>
-<p id="ref2">[2]: see the bitter lesson essay from Richard Sutton that argue that increasing compute will overtake model that don’t leverage it, for a notable intro to it</p>
+<p id="ref0">[0]: this one won’t move the needle IMO as most of the models are already trained on all the internet and books, but this is nonetheless a held opinion as some advocate training on synthetic data</p>
+<p id="ref1">[1]: see the bitter lesson essay from Richard Sutton that argue that increasing compute will overtake model that don’t leverage it, for a notable intro to it</p>
+<p id="ref2">[2]: akin to the flexible hubs of the neuroscience theory of the same name
 <p id="ref3">[3]: <a href="https://www.sciencedirect.com/science/article/pii/S089360801930396X" target="_blank">https://www.sciencedirect.com/science/article/pii/S089360801930396X</a></p>
 <p id="ref4">[4]: <a href=https://ai.stackexchange.com/questions/46983/why-not-increase-the-number-of-attention-heads-rather-than-stacking-transformer>https://ai.stackexchange.com/questions/46983/why-not-increase-the-number-of-attention-heads-rather-than-stacking-transformer</a>
 <p id="ref5">[5]: likewise humans are free to re-read a passage whenever it helps their reflection, but don’t do so invariably</p>
